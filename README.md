@@ -9,4 +9,3 @@ provided on the [website](https://groestlcoin.org).
 In addition, this repository contains packaging metadata for package managers running on Linux. Currently
 
 * [Snappy](/snap)
-* [Debian](/debian)
