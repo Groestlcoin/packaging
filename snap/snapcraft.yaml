@@ -42,6 +42,8 @@ parts:
       wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/SHA256SUMS.asc
       wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/groestlcoin-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
       wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/groestlcoin-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
+      gpg --keyserver hkp://pool.sks-keyservers.net:80 --recv-keys 287AE4CA1187C68C08B49CB2D11BD4F33F1DB499
+      gpg --verify SHA256SUMS.asc
       echo "7274BA0B6D060AE05F7BE174900BD69A60856703A54657A5CECB0B57842134DE  SHA256SUMS.asc" | sha256sum --check
       sha256sum --ignore-missing --check SHA256SUMS.asc
       tar -xvf groestlcoin-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
