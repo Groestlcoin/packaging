@@ -1,14 +1,14 @@
-Source: bitcoin
+Source: groestlcoin
 Section: utils
 Priority: optional
-Maintainer: Matt Corallo <matt@mattcorallo.com>
-Uploaders: Matt Corallo <matt@mattcorallo.com>
+Maintainer: Groestlcoin <groestlcoin@gmail.com>
+Uploaders: Groestlcoin <groestlcoin@gmail.com>
 Build-Depends: debhelper,
  devscripts,
  automake,
  libtool,
  bash-completion,
- libdb4.8++-dev,
+ libdb5.3++-dev,
  libssl-dev,
  pkg-config,
  libevent-dev,
@@ -28,45 +28,58 @@ Build-Depends: debhelper,
  libzmq3-dev,
  dh-systemd
 Standards-Version: 3.9.2
-Homepage: https://bitcoincore.org/
-Vcs-Git: git://github.com/bitcoin/bitcoin.git
-Vcs-Browser: https://github.com/bitcoin/bitcoin
+Homepage: https://www.groestlcoin.org/
+Vcs-Git: git://github.com/groestlcoin/groestlcoin.git
+Vcs-Browser: https://github.com/groestlcoin/groestlcoin
 
-Package: bitcoind
+Package: groestlcoind
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, adduser
 Description: peer-to-peer network based digital currency - daemon
- Bitcoin is a free open source peer-to-peer electronic cash system that
+ Groestlcoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides the daemon, bitcoind, and the CLI tool
- bitcoin-cli to interact with the daemon.
+ This package provides the daemon, groestlcoind, and the CLI tool
+ groestlcoin-cli to interact with the daemon.
 
-Package: bitcoin-qt
+Package: groestlcoin-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- Bitcoin is a free open source peer-to-peer electronic cash system that
+ Groestlcoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides Bitcoin-Qt, a GUI for Bitcoin based on Qt.
+ This package provides Groestlcoin-Qt, a GUI for Groestlcoin based on Qt.
 
-Package: bitcoin-tx
+Package: groestlcoin-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
- Bitcoin is a free open source peer-to-peer electronic cash system that
+ Groestlcoin is a free open source peer-to-peer electronic cash system that
  is completely decentralized, without the need for a central server or
  trusted parties.  Users hold the crypto keys to their own money and
  transact directly with each other, with the help of a P2P network to
  check for double-spending.
  .
- This package provides bitcoin-tx, a command-line transaction creation
- tool which can be used without a bitcoin daemon.  Some means of
+ This package provides groestlcoin-tx, a command-line transaction creation
+ tool which can be used without a groestlcoin daemon.  Some means of
  exchanging minimal transaction data with peers is still required.
+
+ Package: groestlcoin-wallet
+ Architecture: any
+ Depends: ${shlibs:Depends}, ${misc:Depends}
+ Description: peer-to-peer digital currency - standalone wallet tool
+  Groestlcoin is a free open source peer-to-peer electronic cash system that
+  is completely decentralized, without the need for a central server or
+  trusted parties.  Users hold the crypto keys to their own money and
+  transact directly with each other, with the help of a P2P network to
+  check for double-spending.
+  .
+  This package provides groestlcoin-wallet, a command-line offline tool for
+  creating and interacting with Groestlcoin Core wallet file.
