@@ -71,15 +71,15 @@ Description: peer-to-peer digital currency - standalone transaction tool
  tool which can be used without a groestlcoin daemon.  Some means of
  exchanging minimal transaction data with peers is still required.
 
- Package: groestlcoin-wallet
- Architecture: any
- Depends: ${shlibs:Depends}, ${misc:Depends}
- Description: peer-to-peer digital currency - standalone wallet tool
-  Groestlcoin is a free open source peer-to-peer electronic cash system that
-  is completely decentralized, without the need for a central server or
-  trusted parties.  Users hold the crypto keys to their own money and
-  transact directly with each other, with the help of a P2P network to
-  check for double-spending.
-  .
-  This package provides groestlcoin-wallet, a command-line offline tool for
-  creating and interacting with Groestlcoin Core wallet file.
+Package: groestlcoin-wallet
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: peer-to-peer digital currency - standalone wallet tool
+ Groestlcoin is a free open source peer-to-peer electronic cash system that
+ is completely decentralized, without the need for a central server or
+ trusted parties.  Users hold the crypto keys to their own money and
+ transact directly with each other, with the help of a P2P network to
+ check for double-spending.
+ .
+ This package provides groestlcoin-wallet, a command-line offline tool for
+ creating and interacting with Groestlcoin Core wallet file.
