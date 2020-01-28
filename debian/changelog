@@ -1,3 +1,21 @@
+groestlcoin (20200127-0~bionic1) bionic; urgency=medium
+
+  * New upstream release
+
+ -- Jackielove4u <jackielove4u@hotmail.com>  Tue, 28 Jan 2020 03:50:39 -0500
+
+groestlcoin (20200127-0~trusty1) trusty; urgency=medium
+
+  * New upstream release
+
+ -- Jackielove4u <jackielove4u@hotmail.com>  Tue, 28 Jan 2020 03:47:06 -0500
+
+groestlcoin (20200127-0~xenial1) xenial; urgency=medium
+
+  * New upstream release
+
+ -- Jackielove4u <jackielove4u@hotmail.com>  Mon, 27 Jan 2020 15:11:06 -0500
+
 groestlcoin (20170118-0~yakkety1) yakkety; urgency=medium
 
   * New upstream release
