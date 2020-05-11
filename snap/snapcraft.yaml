@@ -1,5 +1,5 @@
 name: groestlcoin-core
-version: 2.17.2
+version: 2.18.2
 summary:   peer-to-peer network based digital currency
 description: |
   Groestlcoin is a free open source peer-to-peer electronic cash system that
@@ -42,7 +42,7 @@ parts:
       wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/SHA256SUMS.asc
       wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/groestlcoin-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
       wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/groestlcoin-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
-      echo "FEFFC9425DDE45D81038C3868D01FF4085C84030AAA8B8A51D8D2E53B555C374  SHA256SUMS.asc" | sha256sum --check
+      echo "7274BA0B6D060AE05F7BE174900BD69A60856703A54657A5CECB0B57842134DE  SHA256SUMS.asc" | sha256sum --check
       sha256sum --ignore-missing --check SHA256SUMS.asc
       tar -xvf groestlcoin-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
       tar -xvf groestlcoin-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
