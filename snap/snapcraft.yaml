@@ -1,5 +1,5 @@
 name: groestlcoin-core
-version: 2.21.0
+version: 22.0
 summary:   peer-to-peer network based digital currency
 description: |
   Groestlcoin is a free open source peer-to-peer electronic cash system that
@@ -39,11 +39,11 @@ parts:
     plugin: nil
     override-build: |
       env | grep SNAP
-      wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/SHA256SUMS.asc
+      wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/SHA256SUMS
       wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/groestlcoin-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
       wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/groestlcoin-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
-      echo "63167516A607785EA1FC301A03ED841969A275A204E941E9183E5BE14315A281  SHA256SUMS.asc" | sha256sum --check
-      sha256sum --ignore-missing --check SHA256SUMS.asc
+      echo "06e152a5eb2211efc804d600e6abfdaea702972e7afe98fa91df4bf906ded9df  SHA256SUMS" | sha256sum --check
+      sha256sum --ignore-missing --check SHA256SUMS
       tar -xvf groestlcoin-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
       tar -xvf groestlcoin-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
       install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin groestlcoin-${SNAPCRAFT_PROJECT_VERSION}/bin/groestlcoind
