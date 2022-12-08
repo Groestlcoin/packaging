@@ -24,6 +24,9 @@ override_dh_auto_configure:
 	./autogen.sh
 	./configure $(EXTRA_CONF)
 
+# Command not to run:
+override_dh_auto_test:
+
 # No SysV or Upstart init scripts included
 override_dh_installinit:
 	dh_installinit \
