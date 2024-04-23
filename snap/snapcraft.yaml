@@ -1,5 +1,5 @@
 name: groestlcoin-core
-version: '26.0'
+version: '27.0'
 summary: Fully validating Groestlcoin peer-to-peer network node, wallet and GUI
 description: |
   Groestlcoin Core connects to the Groestlcoin peer-to-peer network to download and
@@ -84,7 +84,7 @@ parts:
       wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/SHA256SUMS
       wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/groestlcoin-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
       wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/groestlcoin-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
-      echo "ebf227f6714f490e6a40c96e80c8c8cae1b7b5e49c69733f4d014456f46238d9  SHA256SUMS" | sha256sum --check
+      echo "40c9e0ee5460e363823e3f156643874d39b26f4f54bf259181918005fc61b9b2  SHA256SUMS" | sha256sum --check
       sha256sum --ignore-missing --check SHA256SUMS
       tar -xvf groestlcoin-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
       tar -xvf groestlcoin-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
