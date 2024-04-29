@@ -1,3 +1,15 @@
+groestlcoin (27.0.0-0~noble1) noble; urgency=medium
+
+  * New upstream release
+
+ -- Jackielove4u <jackielove4u@hotmail.com>  Mon, 29 Apr 2024 11:09:44 -0400
+
+groestlcoin (27.0.0-0~jammy1) jammy; urgency=medium
+
+  * New upstream release
+
+ -- Jackielove4u <jackielove4u@hotmail.com>  Mon, 29 Apr 2024 11:06:17 -0400
+
 groestlcoin (26.0.0-0~jammy1) jammy; urgency=medium
 
   * New upstream release
@@ -9,7 +21,7 @@ groestlcoin (26.0.0-0~focal1) focal; urgency=medium
   * New upstream release
 
  -- Jackielove4u <jackielove4u@hotmail.com>  Wed, 13 Dec 2023 04:53:45 -0500
- 
+
 groestlcoin (25.0.0-0~jammy1) jammy; urgency=medium
 
   * New upstream release
