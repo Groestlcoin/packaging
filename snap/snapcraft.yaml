@@ -1,5 +1,5 @@
 name: groestlcoin-core
-version: '29.0'
+version: '30.2'
 summary: Fully validating Groestlcoin peer-to-peer network node, wallet and GUI
 description: |
   Groestlcoin Core connects to the Groestlcoin peer-to-peer network to download and
@@ -8,7 +8,7 @@ description: |
 
 grade: stable
 confinement: strict
-base: core20
+base: core22
 
 apps:
   daemon:
@@ -47,23 +47,12 @@ apps:
       HOME: $SNAP_USER_COMMON
 
 parts:
-  # Needed to supply desktop-launch
-  # Paste from https://github.com/ubuntu/snapcraft-desktop-helpers/blob/master/snapcraft.yaml
-  # Boilerplate seems to be required according to https://bugs.launchpad.net/snapcraft/+bug/1800057
-  desktop-qt5:
-    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
-    source-depth: 1
-    source-subdir: qt
-    source-commit: ec861254c2a1d2447b2c589446e6cdf04c75c260
+  desktop-launch:
+    source: ./snap/local/src
     plugin: make
-    make-parameters: ["FLAVOR=qt5"]
-    build-packages:
-      - build-essential
-      - qtbase5-dev
-      - dpkg-dev
     stage-packages:
       - libxkbcommon0
-      - ttf-ubuntu-font-family
+      - fonts-ubuntu
       - dmz-cursor-theme
       - light-themes
       - adwaita-icon-theme
@@ -72,7 +61,6 @@ parts:
       - libqt5gui5
       - libgdk-pixbuf2.0-0
       - libqt5svg5 # for loading icon themes which are svg
-      - try: [appmenu-qt5] # not available on core18
       - locales-all
       - xdg-user-dirs
       - fcitx-frontend-qt5
@@ -80,23 +68,24 @@ parts:
   groestlcoin-core:
     plugin: nil
     override-build: |
-      env | grep SNAP
-      wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/SHA256SUMS
-      wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/groestlcoin-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
-      wget https://github.com/Groestlcoin/groestlcoin/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/groestlcoin-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
-      echo "39948986536d29e2a97786e02ad06f92deb1965dd4e1316c48e95728284570f3  SHA256SUMS" | sha256sum --check
+      env | grep "CRAFT\|SNAP" | sort
+      groestlcoin_core_version=$(craftctl get version)
+      curl --fail --location --remote-name https://github.com/Groestlcoin/groestlcoin/releases/download/v${groestlcoin_core_version}/SHA256SUMS
+      curl --fail --location --remote-name https://github.com/Groestlcoin/groestlcoin/releases/download/v${groestlcoin_core_version}/groestlcoin-${groestlcoin_core_version}.tar.gz
+      curl --fail --location --remote-name https://github.com/Groestlcoin/groestlcoin/releases/download/v${groestlcoin_core_version}/groestlcoin-${groestlcoin_core_version}-${CRAFT_ARCH_TRIPLET_BUILD_FOR}.tar.gz
+      echo "c9d8cc4400d8fc32502c8eb9ab43c06f1eec5f8605d147ae75bef0b0a4d65b00  SHA256SUMS" | sha256sum --check
       sha256sum --ignore-missing --check SHA256SUMS
-      tar -xvf groestlcoin-${SNAPCRAFT_PROJECT_VERSION}-${SNAPCRAFT_ARCH_TRIPLET}.tar.gz
-      tar -xvf groestlcoin-${SNAPCRAFT_PROJECT_VERSION}.tar.gz
-      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin groestlcoin-${SNAPCRAFT_PROJECT_VERSION}/bin/groestlcoind
-      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin groestlcoin-${SNAPCRAFT_PROJECT_VERSION}/bin/groestlcoin-qt
-      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin groestlcoin-${SNAPCRAFT_PROJECT_VERSION}/bin/groestlcoin-cli
-      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin groestlcoin-${SNAPCRAFT_PROJECT_VERSION}/bin/groestlcoin-tx
-      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin groestlcoin-${SNAPCRAFT_PROJECT_VERSION}/bin/groestlcoin-wallet
-      install -m 0755 -D -t $SNAPCRAFT_PART_INSTALL/bin groestlcoin-${SNAPCRAFT_PROJECT_VERSION}/bin/groestlcoin-util
-      wget https://raw.githubusercontent.com/Groestlcoin/groestlcoin/v${SNAPCRAFT_PROJECT_VERSION}/share/pixmaps/groestlcoin128.png
-      install -m 0644 -D -t $SNAPCRAFT_PART_INSTALL/share/pixmaps groestlcoin128.png
+      tar -xvf groestlcoin-${groestlcoin_core_version}-${CRAFT_ARCH_TRIPLET_BUILD_FOR}.tar.gz
+      tar -xvf groestlcoin-${groestlcoin_core_version}.tar.gz
+      install -m 0755 -D -t $CRAFT_PART_INSTALL/bin groestlcoin-${groestlcoin_core_version}/bin/groestlcoind
+      install -m 0755 -D -t $CRAFT_PART_INSTALL/bin groestlcoin-${groestlcoin_core_version}/bin/groestlcoin-qt
+      install -m 0755 -D -t $CRAFT_PART_INSTALL/bin groestlcoin-${groestlcoin_core_version}/bin/groestlcoin-cli
+      install -m 0755 -D -t $CRAFT_PART_INSTALL/bin groestlcoin-${groestlcoin_core_version}/bin/groestlcoin-tx
+      install -m 0755 -D -t $CRAFT_PART_INSTALL/bin groestlcoin-${groestlcoin_core_version}/bin/groestlcoin-wallet
+      install -m 0755 -D -t $CRAFT_PART_INSTALL/bin groestlcoin-${groestlcoin_core_version}/bin/groestlcoin-util
+      curl --fail --location --remote-name https://raw.githubusercontent.com/groestlcoin/groestlcoin/v${groestlcoin_core_version}/share/pixmaps/groestlcoin128.png
+      install -m 0644 -D -t $CRAFT_PART_INSTALL/share/pixmaps groestlcoin128.png
     build-packages:
-      - wget
+      - curl
     after:
-      - desktop-qt5
+      - desktop-launch
