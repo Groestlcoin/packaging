@@ -1,5 +1,5 @@
 name: groestlcoin-core
-version: '30.2'
+version: '31.0'
 summary: Fully validating Groestlcoin peer-to-peer network node, wallet and GUI
 description: |
   Groestlcoin Core connects to the Groestlcoin peer-to-peer network to download and
@@ -73,7 +73,7 @@ parts:
       curl --fail --location --remote-name https://github.com/Groestlcoin/groestlcoin/releases/download/v${groestlcoin_core_version}/SHA256SUMS
       curl --fail --location --remote-name https://github.com/Groestlcoin/groestlcoin/releases/download/v${groestlcoin_core_version}/groestlcoin-${groestlcoin_core_version}.tar.gz
       curl --fail --location --remote-name https://github.com/Groestlcoin/groestlcoin/releases/download/v${groestlcoin_core_version}/groestlcoin-${groestlcoin_core_version}-${CRAFT_ARCH_TRIPLET_BUILD_FOR}.tar.gz
-      echo "c9d8cc4400d8fc32502c8eb9ab43c06f1eec5f8605d147ae75bef0b0a4d65b00  SHA256SUMS" | sha256sum --check
+      echo "8e33a0ef0751e5f5264f05622b4047f5c06f22d183b922a26a3b015308d09b80  SHA256SUMS" | sha256sum --check
       sha256sum --ignore-missing --check SHA256SUMS
       tar -xvf groestlcoin-${groestlcoin_core_version}-${CRAFT_ARCH_TRIPLET_BUILD_FOR}.tar.gz
       tar -xvf groestlcoin-${groestlcoin_core_version}.tar.gz
